@@ -2,7 +2,9 @@ import 'package:mobx/mobx.dart';
 
 class Controller {
   //Observador | Observable
-  var counter = Observable(0);
+  var _counter = Observable(0);
+  int get counter => _counter.value;
+  set counter(int value) => _counter.value = value;
 
   //Ação | Action
   Action increment;
@@ -12,11 +14,11 @@ class Controller {
 
     //Reação | Reaction
     autorun((_) {
-      print(counter.value);
+      print(counter);
     });
   }
 
   _increment() {
-    counter.value = counter.value + 1;
+    counter++;
   }
 }
