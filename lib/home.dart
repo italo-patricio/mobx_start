@@ -8,12 +8,13 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  final controller = Controller();
+
   @override
   Widget build(BuildContext context) {
-    final controller = Controller();
     return Scaffold(
       appBar: AppBar(
-        title: Text('Formulário Mobx'),
+        title: Text('Mobx Start'),
       ),
       body: Center(
         child: Column(

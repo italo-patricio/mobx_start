@@ -1,24 +1,16 @@
 import 'package:mobx/mobx.dart';
+part 'controller.g.dart';
 
-class Controller {
+class Controller = ControllerBase with _$Controller;
+
+abstract class ControllerBase with Store {
   //Observador | Observable
-  var _counter = Observable(0);
-  int get counter => _counter.value;
-  set counter(int value) => _counter.value = value;
+  @observable
+  int counter = 0;
 
   //Ação | Action
-  Action increment;
-
-  Controller() {
-    increment = Action(_increment);
-
-    //Reação | Reaction
-    autorun((_) {
-      print(counter);
-    });
-  }
-
-  _increment() {
+  @action
+  increment() {
     counter++;
   }
 }
